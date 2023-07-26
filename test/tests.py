@@ -11,19 +11,17 @@ class TestAMR2H5Converter(unittest.TestCase):
         out = AMR2H5Converter('assets/plotfile')
         self.assertIsInstance(out, AMR2H5Converter)
         self.assertIsInstance(out, h5py.File)
-        os.remove('assets/plotfile.h5')
 
     def test_converter_return_opened(self):
         out = AMR2H5Converter('assets/plotfile', return_opened=True)
         self.assertIsInstance(out, AMR2H5Converter)
         self.assertIsInstance(out, h5py.File)
         self.assertEqual('assets/plotfile.h5', out.filename)
-        os.remove('assets/plotfile.h5')
 
 class TestH5Reader(unittest.TestCase):
 
     def test_read(self):
-        ds = H5Reader('assets/h5file.h5')
+        ds = H5Reader('assets/plotfile.h5')
         self.assertIsInstance(ds, dict)
         self.assertIsInstance(ds, H5Reader)
         self.assertIn('x', ds.keys())
@@ -31,10 +29,11 @@ class TestH5Reader(unittest.TestCase):
         self.assertTrue(len(ds.keys()) > 3)
 
     def test_read_fast_field(self):
-        ds = H5Reader('assets/h5file.h5', fast_field='temp')
+        ds = H5Reader('assets/plotfile.h5', fast_field='temp')
         self.assertIn('temp', ds.keys())
         self.assertIsInstance(ds, dict)
         self.assertIsInstance(ds, H5Reader)
+        os.remove('assets/plotfile.h5')
 
         
 if __name__ == '__main__':
