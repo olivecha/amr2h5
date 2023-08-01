@@ -3,6 +3,7 @@ __pycache__
 *.ipynb
 .ipynb_checkpoints
 .pytest_cache
+dist
 
 # MacOs
 .DS_Store

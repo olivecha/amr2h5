@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "amr2h5"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Olivier Chabot", email="olivier.chabot@polymtl.ca" },
 ]
 description = "A converter from AMR Block data (BoxLib) to H5 covered grids"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
